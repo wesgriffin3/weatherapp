@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  fetch(
+    "http://api.weatherapi.com/v1/current.json?key=2475382daad64999b19224831221407&q=Houston"
+  )
+    .then((response) => response.json())
+    .then((data) => console.log(data, data.current.temp_f));
+
+  return <div className="App"></div>;
 }
 
 export default App;
